@@ -11,6 +11,8 @@ import { UsuariosComponent } from './usuarios/usuarios.component';
 import { HostsComponent } from './hosts/hosts.component';
 import { PedasComponent } from './pedas/pedas.component';
 import { AlcoholesComponent } from './alcoholes/alcoholes.component';
+import { UsuarioPedasComponent } from './usuariopedas/usuariopedas.component';
+import { HostPedasComponent } from './hostpedas/hostpedas.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { AlcoholesComponent } from './alcoholes/alcoholes.component';
     UsuariosComponent,
     HostsComponent,
     PedasComponent,
-    AlcoholesComponent
+    AlcoholesComponent,
+    UsuarioPedasComponent,
+    HostPedasComponent
   ],
   imports: [
     BrowserModule,

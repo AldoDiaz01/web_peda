@@ -4,6 +4,8 @@ import { UsuariosComponent } from './usuarios/usuarios.component';
 import { HostsComponent } from './hosts/hosts.component';
 import { PedasComponent } from './pedas/pedas.component';
 import { AlcoholesComponent } from './alcoholes/alcoholes.component';
+import { UsuarioPedasComponent } from './usuariopedas/usuariopedas.component';
+import { HostPedasComponent } from './hostpedas/hostpedas.component';
 
 const routes: Routes = [
   {
@@ -21,6 +23,14 @@ const routes: Routes = [
   {
     path: 'alcoholes/:id',
     component: AlcoholesComponent
+  },
+  {
+    path: 'usuariopedas/:id',
+    component: UsuarioPedasComponent
+  },
+  {
+    path: 'hostpedas/:id',
+    component: HostPedasComponent
   }
 ];
 

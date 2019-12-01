@@ -31,7 +31,7 @@ import { Pedas } from '../pedas';
 })
 export class PedasComponent implements OnInit {
 
-  itemCount : number = 1;
+  itemCount : number;
   btnText:  string = "Agregar una peda";
   goalText1: string = "";
   goalText2: string = "";
@@ -43,7 +43,7 @@ export class PedasComponent implements OnInit {
 
   ngOnInit() {
    this.getPedas();
-   this.itemCount = this.goals.length;
+   
   }
 
   getPedas() {
@@ -51,6 +51,7 @@ export class PedasComponent implements OnInit {
      .subscribe((data: any) => {
       console.log("pedas :" + data );
       this.goals = data;
+      this.itemCount = this.goals.length;
       //this.itemCount = this.itemCount+=1;
       //alert("pedas " + data);
     }) 

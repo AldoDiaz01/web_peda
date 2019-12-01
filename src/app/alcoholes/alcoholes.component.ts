@@ -31,7 +31,7 @@ import { Alcoholes } from '../alcoholes';
 })
 export class AlcoholesComponent implements OnInit {
 
-  itemCount : number = 1;
+  itemCount : number;
   btnText:  string = "Agregar un alcohol";
   goalText1: string = "";
   goalText2: string = "";
@@ -41,7 +41,7 @@ export class AlcoholesComponent implements OnInit {
 
   ngOnInit() {
    this.getAlcoholes();
-   this.itemCount = this.goals.length;
+   
   }
 
   getAlcoholes() {
@@ -49,6 +49,7 @@ export class AlcoholesComponent implements OnInit {
      .subscribe((data: any) => {
       console.log("alcoholes :" + data );
       this.goals = data;
+      this.itemCount = this.goals.length;
       //this.itemCount = this.itemCount+=1;
       //alert("alcoholes " + data);
     }) 

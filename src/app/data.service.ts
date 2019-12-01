@@ -5,6 +5,9 @@ import { Usuarios } from './usuarios';
 import { Hosts } from './hosts';
 import { Pedas } from './pedas';
 import { Alcoholes } from './alcoholes';
+import { UsuarioPedas } from './usuariopedas';
+import { HostPedas } from './hostpedas';
+
 //import { Http, Headers, RequestOptions, URLSearchParams} from "@angular/http";
 
 
@@ -18,7 +21,7 @@ export class DataService {
 
 // Define API
 apiURL = 'http://localhost:10010';
-
+//apiURL = 'https://';
 
  constructor(private http: HttpClient) { }
 
@@ -132,6 +135,60 @@ postAlcoholes(body) {
 
 deleteAlcoholes(id) {
   return this.http.delete(this.apiURL + '/alcoholes/' + id, this.httpOptions)
+  .pipe(
+    retry(1),
+    catchError(this.handleError)  
+  )
+}
+
+
+getUsuarioPedas(): Observable<UsuarioPedas> {
+  return this.http.get<UsuarioPedas>(this.apiURL + '/usuariopedas')
+  .pipe(
+    retry(1),
+    catchError(this.handleError)
+  )
+}
+
+
+postUsuarioPedas(body) {
+  return this.http.post(this.apiURL + '/usuariopedas', body, this.httpOptions)
+  .pipe(
+    retry(1),
+    catchError(this.handleError)  
+  )
+}
+
+
+deleteUsuarioPedas(id) {
+  return this.http.delete(this.apiURL + '/usuariopedas/' + id, this.httpOptions)
+  .pipe(
+    retry(1),
+    catchError(this.handleError)  
+  )
+}
+
+
+getHostPedas(): Observable<HostPedas> {
+  return this.http.get<HostPedas>(this.apiURL + '/hostpedas')
+  .pipe(
+    retry(1),
+    catchError(this.handleError)
+  )
+}
+
+
+postHostPedas(body) {
+  return this.http.post(this.apiURL + '/hostpedas', body, this.httpOptions)
+  .pipe(
+    retry(1),
+    catchError(this.handleError)  
+  )
+}
+
+
+deleteHostPedas(id) {
+  return this.http.delete(this.apiURL + '/hostpedas/' + id, this.httpOptions)
   .pipe(
     retry(1),
     catchError(this.handleError)  

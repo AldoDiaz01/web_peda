@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { trigger, style, transition, animate, keyframes, query, stagger } from '@angular/animations';
 import { DataService } from '../data.service';
-import { Hosts } from '../hosts';
+import { HostPedas } from '../hostpedas';
 
 @Component({
-  selector: 'app-hosts',
-  templateUrl: './hosts.component.html',
-  styleUrls: ['./hosts.component.scss'],
+  selector: 'app-hostpedas',
+  templateUrl: './hostpedas.component.html',
+  styleUrls: ['./hostpedas.component.scss'],
   animations: [ 
     trigger ('goals', [
       transition('* => *', [
@@ -29,26 +29,27 @@ import { Hosts } from '../hosts';
   ])
 ]
 })
-export class HostsComponent implements OnInit {
+export class HostPedasComponent implements OnInit {
 
   itemCount : number;
-  btnText:  string = "Agregar un host";
+  btnText:  string = "Agregar una peda y su host";
   
-  goalText1: string = "";
-  goalText2: string = "";
+  goalText1: number;
+  goalText2: number;
+  goalText3: string = "";
   goals = [];
   constructor(private _data: DataService) { }
 
   ngOnInit() {
-   this.getHosts();
+   this.getHostPedas();
    
   }
 
-  getHosts() {
+  getHostPedas() {
       
-    return this._data.getHosts()
+    return this._data.getHostPedas()
      .subscribe((data: any) => {
-      console.log("hosts :" + data );
+      console.log("hostpedas :" + data );
       this.goals = data;
       this.itemCount = this.goals.length;
     }) 
@@ -56,27 +57,29 @@ export class HostsComponent implements OnInit {
   } 
   addItem() {
     this.itemCount = this.itemCount+=1;
-    var mydata = new Hosts;
+    var mydata = new HostPedas;
      
-    mydata.nombre = this.goalText1;
-    mydata.direccion = this.goalText2;
+    mydata.host = this.goalText1;
+    mydata.peda = this.goalText2;
+    mydata.calificacion = this.goalText3;
 
-    return this._data.postHosts(mydata)
+    return this._data.postHostPedas(mydata)
      .subscribe((data: any) => {
-      console.log("post hosts :" + data );
-      this.goalText1 = '';
-      this.goalText2 = '';
-      this.getHosts();
+      console.log("post hostpedas :" + data );
+      this.goalText1 = null;
+      this.goalText2 = null;
+      this.goalText3 = '';
+      this.getHostPedas();
     }) 
   }
 
   removeItem(i) {
     this.goals.splice(i, 1);
     this.itemCount = this.goals.length-=1;
-    return this._data.deleteHosts(i)
+    return this._data.deleteHostPedas(i)
       .subscribe((data: any) => {
-      console.log("deleted hosts :" + data );
-      this.getHosts();
+      console.log("deleted hostpedas :" + data );
+      this.getHostPedas();
     }) 
   }
 }

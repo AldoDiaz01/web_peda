@@ -31,7 +31,7 @@ import { Usuarios } from '../usuarios';
 })
 export class UsuariosComponent implements OnInit {
 
-  itemCount : number = 1;
+  itemCount : number;
   btnText:  string = "Agregar un usuario";
   goalText1: string = "";
   goalText2: string = "";
@@ -42,7 +42,7 @@ export class UsuariosComponent implements OnInit {
 
   ngOnInit() {
    this.getUsuarios();
-   this.itemCount = this.goals.length;
+   
   }
 
   getUsuarios() {
@@ -50,6 +50,7 @@ export class UsuariosComponent implements OnInit {
      .subscribe((data: any) => {
       console.log("usuarios :" + data );
       this.goals = data;
+      this.itemCount = this.goals.length;
       //this.itemCount = this.itemCount+=1;
       //alert("usuarios " + data);
     }) 

@@ -1,0 +1,24 @@
+<div class="container color-dark">
+    <div class="col">
+        <p>Agregar una peda y su host ;) </p>
+    </div>
+    <div class="col">
+        <p>Lista de pedas y hosts ({{itemCount}})</p>
+    </div>
+</div>
+<div class="container color-light" [@goals]="goals.length">
+    <div class="col">
+    <p class="sm">¡Agregar una nueva peda y su host!</p>
+    <form>
+        <input type="number" class="txt" name="item" placeholder="Host..." [(ngModel)]= "goalText1">
+        <input type="number" class="txt" name="item" placeholder="Peda..." [(ngModel)]= "goalText2">
+        <input type="text" class="txt" name="item" placeholder="Calificacion..." [(ngModel)]= "goalText3">
+        <input type="submit" class="btn" [value]="btnText" (click)="addItem()">
+    </form>
+</div>
+<div class="col">
+    <p class="life-container" *ngFor="let goal of goals; let i = index" (click) = "removeItem(goal.id)">
+        {{goal.host}}
+    </p>
+    </div>
+</div>
