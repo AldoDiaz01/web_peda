@@ -36,6 +36,10 @@ export class HostsComponent implements OnInit {
   
   goalText1: string = "";
   goalText2: string = "";
+  goalText3: string = "";
+  goalText4: string = "";
+  goalText5: string = "";
+  goalText6: string = "";
   goals = [];
   constructor(private _data: DataService) { }
 
@@ -58,14 +62,22 @@ export class HostsComponent implements OnInit {
     this.itemCount = this.itemCount+=1;
     var mydata = new Hosts;
      
-    mydata.nombre = this.goalText1;
-    mydata.direccion = this.goalText2;
+    mydata.usuario = this.goalText1;
+    mydata.contrasena = this.goalText2;
+    mydata.nombre = this.goalText3;
+    mydata.edad = this.goalText4;
+    mydata.telefono = this.goalText5;
+    mydata.direccion = this.goalText6;
 
     return this._data.postHosts(mydata)
      .subscribe((data: any) => {
       console.log("post hosts :" + data );
       this.goalText1 = '';
       this.goalText2 = '';
+      this.goalText3 = '';
+      this.goalText4 = '';
+      this.goalText5 = '';
+      this.goalText6 = '';
       this.getHosts();
     }) 
   }

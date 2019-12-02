@@ -1,5 +1,7 @@
 export class Usuarios {
+    usuario: string;
+    contrasena: string;
     nombre : string;
     edad : string;
-    genero : string;
+    telefono : string;
 }

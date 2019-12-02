@@ -36,6 +36,8 @@ export class UsuariosComponent implements OnInit {
   goalText1: string = "";
   goalText2: string = "";
   goalText3: string = "";
+  goalText4: string = "";
+  goalText5: string = "";
   goals = [];
 
   constructor(private _data: DataService) { }
@@ -60,10 +62,12 @@ export class UsuariosComponent implements OnInit {
   addItem() {
     this.itemCount = this.itemCount+=1;
     var mydata = new Usuarios;
-     
-    mydata.nombre = this.goalText1;
-    mydata.edad = this.goalText2;
-    mydata.genero = this.goalText3;
+    
+    mydata.usuario = this.goalText1;
+    mydata.contrasena = this.goalText2;
+    mydata.nombre = this.goalText3;
+    mydata.edad = this.goalText4;
+    mydata.telefono = this.goalText5;
   
     return this._data.postUsusarios(mydata)
      .subscribe((data: any) => {
@@ -71,6 +75,8 @@ export class UsuariosComponent implements OnInit {
       this.goalText1 = '';
       this.goalText2 = '';
       this.goalText3 = '';
+      this.goalText4 = '';
+      this.goalText5 = '';
       this.getUsuarios();
       }) 
   }
