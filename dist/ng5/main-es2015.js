@@ -41,7 +41,7 @@ module.exports = "<div class=\"container color-dark\">\n    <div class=\"col\">\
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!--The content below is only a placeholder and can be replaced.-->\n<ul>\n  <li><a routerLink=\"\">Usuarios</a></li> \n  <li><a routerLink=\"hosts/48\">Hosts</a></li> \n  <li><a routerLink=\"pedas/48\">Pedas</a></li> \n  <li><a routerLink=\"alcoholes/48\">Alcoholes</a></li> \n  <li><a routerLink=\"usuariopedas/48\">UsuarioPedas</a></li> \n  <li><a routerLink=\"hostpedas/48\">HostPedas</a></li> \n</ul>\n\n<router-outlet></router-outlet>\n"
+module.exports = "<!--The content below is only a placeholder and can be replaced.-->\n<ul>\n    <header>\n        <h1>Mi-Peda</h1>\n        <h2>Bienvenido a la página de registro de Mi-Peda... v1</h2>\n        <input type=\"submit\" class=\"btn\" [value]=\"btnText\" (click)=\"download()\">\n    </header>\n  \n  <li><a routerLink=\"\">Usuarios</a></li> \n  <li><a routerLink=\"hosts/48\">Hosts</a></li> \n  <li><a routerLink=\"pedas/48\">Pedas</a></li> \n  <li><a routerLink=\"alcoholes/48\">Alcoholes</a></li> \n  <li><a routerLink=\"usuariopedas/48\">UsuarioPedas</a></li> \n  <li><a routerLink=\"hostpedas/48\">HostPedas</a></li> \n</ul>\n\n<router-outlet></router-outlet>\n"
 
 /***/ }),
 
@@ -322,6 +322,10 @@ __webpack_require__.r(__webpack_exports__);
 let AppComponent = class AppComponent {
     constructor() {
         this.title = 'Mi-Peda';
+        this.btnText = "Descargar App";
+    }
+    download() {
+        window.open('assets/MyPeda.apk');
     }
 };
 AppComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
@@ -364,7 +368,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-//import { HttpModule } from '@angular/common/http';
+//import {HttpModule} from '@angular/http';
 
 
 
@@ -425,7 +429,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-//import { Http, Headers, RequestOptions, URLSearchParams} from "@angular/http";
+//import { Http, Headers, RequestOptions, URLSearchParams} from "@angular/common/http";
 
 
 //import { _throw as throwError } from 'rxjs/observable/throw';
@@ -433,8 +437,8 @@ let DataService = class DataService {
     constructor(http) {
         this.http = http;
         // Define API
-        //apiURL = 'http://localhost:10010';
-        this.apiURL = 'https://mipeda.appspot.com';
+        //apiURL = 'http://localhost:10010/api';
+        this.apiURL = 'https://mipeda.appspot.com/api';
         // Http Options
         this.httpOptions = {
             headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({

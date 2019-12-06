@@ -1,5 +1,6 @@
 import { BehaviorSubject } from 'rxjs'
 import { Injectable } from '@angular/core';
+import { HttpResponse } from '@angular/common/http';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Usuarios } from './usuarios';
 import { Hosts } from './hosts';
@@ -8,7 +9,8 @@ import { Alcoholes } from './alcoholes';
 import { UsuarioPedas } from './usuariopedas';
 import { HostPedas } from './hostpedas';
 
-//import { Http, Headers, RequestOptions, URLSearchParams} from "@angular/http";
+
+//import { Http, Headers, RequestOptions, URLSearchParams} from "@angular/common/http";
 
 
 import { Observable, throwError } from 'rxjs';
@@ -20,8 +22,8 @@ import { retry, catchError } from 'rxjs/operators';
 export class DataService {
 
 // Define API
-//apiURL = 'http://localhost:10010';
-apiURL = 'https://mipeda.appspot.com';
+//apiURL = 'http://localhost:10010/api';
+apiURL = 'https://mipeda.appspot.com/api';
 
  constructor(private http: HttpClient) { }
 
@@ -33,8 +35,7 @@ apiURL = 'https://mipeda.appspot.com';
      'Accept' : 'application/json'
 
    })
- }  
-
+ } 
 
  getUsuarios(): Observable<Usuarios> {
   return this.http.get<Usuarios>(this.apiURL + '/usuarios')
@@ -207,6 +208,4 @@ deleteHostPedas(id) {
     window.alert(errorMessage);
     return throwError(errorMessage);
  }
-
-
 }

@@ -44,7 +44,6 @@ export class UsuariosComponent implements OnInit {
 
   ngOnInit() {
    this.getUsuarios();
-   
   }
 
   getUsuarios() {
