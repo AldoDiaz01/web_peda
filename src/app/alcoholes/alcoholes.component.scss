@@ -1,6 +1,17 @@
+.ul{
+    background-color: rgb(255, 255, 255);
+
+}
+
 .container{
     display: grid;
     grid-template-columns: 50% auto;
+}
+
+.container .col .sm{
+    color: rgb(255, 255, 255);
+    font-family: serif;
+    font-size: 1.5em;
 }
 
 .col {
@@ -8,11 +19,14 @@
 }
 
 .color-dark {
-    background: #2885C4;
+    background: rgb(0, 0, 0);
+    font-family:monospace ;
+    font-size: 1.3em;
+
 }
 
 .color-light { 
-    background: #57B3F1;
+    background: rgb(27, 27, 27);
 }
 
 input.txt {
@@ -26,14 +40,17 @@ input.btn {
     border: 0;
     display: block;
     padding: 1em 3em;
-    background: #A5F883;
-    color: #003A61;
+    background: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
     margin-bottom:1em;
+    margin-left: 3em;
+    text-align: center;
     cursor: pointer;
 }
 
 .life-continer {
-    background: #3FA0E1;
+    background: rgb(0, 0, 0);
     padding: .5em;
     font-weight: bold;
     cursor: pointer;
